@@ -53,6 +53,8 @@ html {
   max-width: 1000px; /* Ancho máximo para dispositivos grandes */
   max-height: 500px; /* Altura máxima para dispositivos grandes */
   box-sizing: border-box; /* Asegura que padding y border estén incluidos en el ancho/altura */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font_size: 1.5em;
 }
 
 .responsive_image {
