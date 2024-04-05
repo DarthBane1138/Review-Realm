@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgb(23, 43, 80), rgb(68, 103, 167));
+  margin: 0;
+  padding: 0;
+}
+
+/* Cambiar el color de fondo de la navbar */
+.bg-body-tertiary {
+  background-color: rgb(65, 65, 65) !important; /* Gris oscuro para el fondo */
+}
+
+/* Para el color de las letras de los elementos de la navbar */
+.navbar-nav .nav-link {
+  color: rgb(255, 255, 255); /* Blanco para las letras */
+}
+
+/* Para cambiar el color de las letras de los elementos del navbar */
+.navbar-nav .nav-link.active {
+  color: rgb(76, 169, 201); /* Azul claro para el elemento activo */
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link.disabled {
+  color: rgb(100, 100, 100); /* gris para los elementos incativos */
+}
+
+.contenedor-titulo {
+  background-color: rgb(100, 100, 100);
+}
