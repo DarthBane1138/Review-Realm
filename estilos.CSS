@@ -61,3 +61,16 @@ html {
   max-width: 100%; /* Hace que la imagen sea tan ancha como su contenedor */
   height: auto; /* Mantiene la proporción de la imagen */
 }
+
+.subtitulo_index {
+  color: green;
+  text-shadow: -1px -1px 1px rgb(0, 0, 0), 1px -1px 1px rgb(0, 0, 0), -1px 1px 1px rgb(0, 0, 0), 1px 1px 10px rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+.lista_pagina {
+  text-align: left;
+  color:  rgb(219, 219, 219);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  line-height: 2;
+}
