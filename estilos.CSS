@@ -1,4 +1,4 @@
-html {
+html, body {
   height: 100%;
   background-image: linear-gradient(to bottom, rgb(23, 43, 80), rgb(68, 103, 167));
   margin: 0;
@@ -54,7 +54,6 @@ html {
   max-height: 500px; /* Altura máxima para dispositivos grandes */
   box-sizing: border-box; /* Asegura que padding y border estén incluidos en el ancho/altura */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font_size: 1.5em;
 }
 
 .responsive_image {
@@ -73,4 +72,24 @@ html {
   color:  rgb(219, 219, 219);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   line-height: 2;
+}
+
+#cuerpo_categorias {
+  color: rgba(0, 185, 46);
+  background-color: transparent;
+}
+
+#columna_principal {
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 811px;
+}
+
+.table-transparent {
+  background-color: rgba(255, 255, 255, 0); /* Fondo completamente transparente */
+}
+
+.table-transparent th,
+.table-transparent td {
+  background-color: rgba(255, 255, 255, 0); /* Fondo completamente transparente */
+  color: white;
 }
