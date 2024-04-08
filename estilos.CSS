@@ -61,3 +61,10 @@ html {
   max-width: 100%; /* Hace que la imagen sea tan ancha como su contenedor */
   height: auto; /* Mantiene la proporción de la imagen */
 }
+
+.fondo-inicio {
+  background-image: url('img/ghost_of_tsushima.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed
+}
