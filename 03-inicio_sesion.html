@@ -23,7 +23,14 @@
               <a class="nav-link" href="02-categorias.html">Categorías</a>
               <a class="nav-link active" aria-current="page" href="03-inicio_sesion.html">Iniciar Sesión</a>
               <a class="nav-link" href="04-recomendacion_aleatoria.html">Recomendación aleatoria</a>
-              <a class="nav-link disabled" href="05-perfil_usuario.html" aria-disabled="true">Perfil</a>
+              <a class="nav-link" href="06-Ingresar_juego.html">Ingresar Juego</a>
+            </div>
+            <div class="ms-auto navbar-nav">
+              <div class="nav-item d-flex align-items-center">
+                <span class="nav-link">Perfil</span>
+                <img src="img/imagen_perfil.png" alt="Foto de perfil" width="30" class="rounded-circle">   
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -33,29 +40,42 @@
         <h1 class ="text-center">Inicio Sesión</h1>
         </div>
 
-        <div class="container mt-3">
-          <div class="row justify-content-center">
-            <div class="col-md-6 mb-5">
-              <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+      <div class = "container-fluid" id= "cuerpo_categorias">
+        <div class = "row">
+          <div class = "col-2"></div>
+          <div class = "col-8" id = "columna_principal">
+            <div class="container mt-3">
+              <br><br>
+              <div class="row justify-content-center">
+                <div class="col-md-6 mb-5">
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <label for="inputPassword5" class="form-label">Contraseña</label>
+                    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                    <div id="passwordHelpBlock" class="form-text">
+                      Recuerde que su contraseña debe contener entre 8 y 20 caracteres, incluir letras y números, y no debe tener espacios ni caracteres especiales.
+                    </div>
+                    <br>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                  </form>
+                  <div style="height: 500px;"></div>
                 </div>
-                <label for="inputPassword5" class="form-label">Contraseña</label>
-                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-                <div id="passwordHelpBlock" class="form-text">
-                  Recuerde que su contraseña debe contener entre 8 y 20 caracteres, incluir letras y números, y no debe tener espacios ni caracteres especiales.
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-              </form>
-              <div style="height: 500px;"></div>
+              </div>
             </div>
           </div>
+          <div class = "col-2"></div>
         </div>
+      </div>
+            
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
