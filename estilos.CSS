@@ -38,7 +38,7 @@ html, body {
   background-color: rgba(0, 0, 0, 0.8); /* Aumenta la opacidad para oscurecer */
 }
 
-.content_box_wide {
+.content_box_wide:not(.recomendaciones) {
   background-color: rgba(0, 0, 0, 0.356);
   position: absolute;
   top: 50%; /* Ajusta la posición vertical según necesites */
@@ -63,6 +63,12 @@ html, body {
 
 .subtitulo_index {
   color: green;
+  text-shadow: -1px -1px 1px rgb(0, 0, 0), 1px -1px 1px rgb(0, 0, 0), -1px 1px 1px rgb(0, 0, 0), 1px 1px 10px rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+.subtitulo_index_2 {
+  color: rgb(0, 88, 0);
   text-shadow: -1px -1px 1px rgb(0, 0, 0), 1px -1px 1px rgb(0, 0, 0), -1px 1px 1px rgb(0, 0, 0), 1px 1px 10px rgb(0, 0, 0);
   font-weight: bolder;
 }
@@ -92,4 +98,35 @@ html, body {
 .table-transparent td {
   background-color: rgba(255, 255, 255, 0); /* Fondo completamente transparente */
   color: white;
+}
+
+.content_box_wide.recomendaciones {
+  background-color: rgba(0, 0, 0, 0.356);
+  position: absolute;
+  top: 50%; /* Ajusta la posición vertical según necesites */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Asegura que la caja de texto esté sobre las imágenes */
+  color: #000000; /* El color del texto */
+  text-align: center; /* Centra el texto dentro de la caja */
+  /* Agrega aquí más estilos si es necesario */
+  width: 50%; /* Porcentaje del ancho de la pantalla */
+  height: 1000px;
+  max-width: 1000px; /* Ancho máximo para dispositivos grandes */
+  max-height: 500px; /* Altura máxima para dispositivos grandes */
+  box-sizing: border-box; /* Asegura que padding y border estén incluidos en el ancho/altura */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.caja-flexible {
+  height: 150px; /* Altura fija */
+  width: auto; /* Anchura adaptable */
+  max-width: 100%; /* Asegura que la caja no exceda el ancho del contenedor */
+  overflow: auto; /* Añade barras de desplazamiento si el contenido excede la altura */
+}
+
+.caja-fija {
+  height: 1080px; /* Altura fija */
+  width: 1920px; /* Anchura inicial fija */
+  /*max-width: 500px; /* Anchura máxima fija */
 }
