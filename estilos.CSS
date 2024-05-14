@@ -1,5 +1,5 @@
 html, body {
-  height: 100%;
+  height: 2000px;
   background-image: linear-gradient(to bottom, rgb(23, 43, 80), rgb(68, 103, 167));
   margin: 0;
   padding: 0;
@@ -93,7 +93,7 @@ html, body {
 
 #columna_principal {
   background-color: rgba(0, 0, 0, 0.5);
-  min-height: 811px;
+  height: 1881px;
 }
 
 .table-transparent {
@@ -157,4 +157,27 @@ html, body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed
+}
+
+/* A partir de acá se actualizan estilos que se incorporar para la segunda entrega */
+
+.errores {
+  background: rgba(255, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  color: #fff;
+  display: none;
+  font-size: 14px;
+  padding: 4px;
+  position: absolute;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkbox-container .form-check {
+  width: 50%;
 }

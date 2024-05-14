@@ -23,16 +23,20 @@
             <div class="navbar-nav">
               <a class="nav-link" href="01-index.html">Inicio</a>
               <a class="nav-link" href="02-categorias.html">Categorías</a>
-              <a class="nav-link active" aria-current="page" href="03-inicio_sesion.html">Iniciar Sesión</a>
               <a class="nav-link" href="04-recomendacion_aleatoria.html">Recomendación aleatoria</a>
               <a class="nav-link" href="06-Ingresar_juego.html">Ingresar Juego</a>
             </div>
             <div class="ms-auto navbar-nav">
+              <div class="nav-item d-flex align-items-center"></div>
+              <a class="nav-link active" aria-current="page" href="03-inicio_sesion.html">Iniciar Sesión</a>
+              <a class="nav-link" href="08-Registrarse.html">Registrarse</a>
+            </div>
+            <!--<div class="ms-auto navbar-nav">
               <div class="nav-item d-flex align-items-center">
                 <a class="nav-link" href = "07-Perfil.html">Perfil</a>
-                <img src="img/imagen_perfil.png" alt="Foto de perfil" width="30" class="rounded-circle">   
+                <img src="img/imagen_perfil.png" alt="Foto de perfil" width="30" class="rounded-circle">
               </div>
-            </div>
+            </div>-->
             </div>
           </div>
         </div>
@@ -55,20 +59,20 @@
                   <!-- formulario para iniciar sesión -->
                   <form>
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <label for="inputPassword5" class="form-label">Contraseña</label>
-                    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-                    <div id="passwordHelpBlock" class="form-text">
-                      Recuerde que su contraseña debe contener entre 8 y 20 caracteres, incluir letras y números, y no debe tener espacios ni caracteres especiales.
-                    </div>
-                    <br>
+                      <label for="itMail" class="form-label">Correo electrónico</label>
+                      <input type="email" class="form-control" id="itMail" aria-describedby="emailHelp">
+                      <div id="mensajeErrorCorreo" class="errores"></div>
+                    </div><br>
+                    <div class="mb-3">
+                    <label for="itContrasena" class="form-label">Contraseña</label>
+                    <input type="password" id="itContrasena" class="form-control" aria-describedby="passwordHelpBlock">
+                    <div id="mensajeErrorContrasena" class="errores"></div>
+                    </div><br>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <button type="submit" class="btn btn-primary" id="bEnviar">Iniciar Sesión</button>
                   </form>
                   <div style="height: 500px;"></div>
                 </div>
@@ -84,5 +88,44 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <script>
+      var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9\-\.]+$/;
+      var exprpass = /^(?=.*[a-zA-Z])(?=.*\d{2,})(?=.*[!./¡¿?])[a-zA-Z\d!./¡¿?]{10,}$/;
+
+      $(document).ready(function(){
+        $("#bEnviar").click(function(){
+          var correo = $("#itMail").val();
+          
+          if(correo === ""){
+            $("#mensajeErrorCorreo").text("El correo no puede estar vacío").fadeIn();
+            return false;
+          }else if (!expr.test(correo)){
+            $("#mensajeErrorCorreo").text("El correo con cumple con el formato requerido").fadeIn();
+          }else {
+            $("#mensajeErrorCorreo").fadeOut();
+            }
+          });
+        });
+
+
+      $(document).ready(function(){
+        $("#bEnviar").click(function(){
+          var contrasena = $("#itContrasena").val();
+
+          if(contrasena === ""){
+            $("#mensajeErrorContrasena").text("El campo de contraseña no puedes estar vacío").fadeIn();
+            return false;
+          }else if (!exprpass.test(contrasena)){
+            $("#mensajeErrorContrasena").text("El formato de contraseña no es válido, agregue Mayúsculas, números y algún caracter /-.").fadeIn();
+            return false;
+          }else{
+            $("#mensajeErrorContrasena").fadeOut();
+          }
+        });
+      });
+
+    </script>
+
   </body>
 </html>
