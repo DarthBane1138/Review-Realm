@@ -102,6 +102,7 @@
             return false;
           }else if (!expr.test(correo)){
             $("#mensajeErrorCorreo").text("El correo con cumple con el formato requerido").fadeIn();
+            return false;
           }else {
             $("#mensajeErrorCorreo").fadeOut();
             }
