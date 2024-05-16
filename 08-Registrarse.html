@@ -56,29 +56,29 @@
               <div class="row justify-content-center">
                 <div class="col-md-6 mb-5">
                   <!-- formulario para Registro -->
-                  <form>
+                  <form id="formulario-registro">
                     <!-- Nombre de Usuario -->
                     <div class="mb-2">
                       <label for="itUserName" class="form-label">Nombre de Usuario</label>
-                      <input type="text" class="form-control" id="itUserName">
+                      <input type="text" class="form-control" id="itUserName" placeholder="Ingrese un nombre de usuario">
                       <div id="mensajeUserName" class="errores"></div>
                     </div><br>
                     <!-- Contraseña -->
                     <div class="mb-2">
                       <label for="itPassword" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="itContrasena">
+                      <input type="password" class="form-control" id="itContrasena" placeholder="Debe contener al menos una mayúscula, un número, y !./¡¿?">
                       <div id="mensajeContrasena" class="errores"></div>
                     </div><br>
                     <!-- Confirmación Contraseña -->
                     <div class="mb-2">
                       <label for="itPasswordConf" class="form-label">Confirmar Contraseña</label>
-                      <input type="password" class="form-control" id="itConstrasenaConf">
+                      <input type="password" class="form-control" id="itConstrasenaConf" placeholder="Vuelva a ingresar su contraseña">
                       <div id="mensajeContrasenaConf" class="errores"></div>
                     </div><br>
                     <!-- Correo Electrónico -->
                     <div class="mb-2">
                       <label for="itMail" class="form-label">Correo Electrónico</label>
-                      <input type="email" class="form-control" id="itEmail">
+                      <input type="email" class="form-control" id="itEmail" placeholder="Ingrese su correo electrónico">
                       <div id="mensajeEmail" class="errores"></div>
                     </div>
 
@@ -191,6 +191,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+
+
       var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9\-\.]+$/;
       var exprpass = /^(?=.*[a-zA-Z])(?=.*\d{2,})(?=.*[!./¡¿?])[a-zA-Z\d!./¡¿?]{10,}$/;
 
@@ -204,6 +206,7 @@
         });
       });
 
+      // Verificador que no permite seleccionar más de 3 casillas de género
       $(document).ready(function(){
         $('input[name="genero"]').change(function(){ // Se seleccionan todos los elementos input con nombre name igual a a genero, adjunta controlador de eventos change para verificar cada vez que uno de estos cambie
           var maxAllowed = 3;
@@ -216,16 +219,18 @@
         });
       });
 
+      // Validaciones de formulario
       $(document).ready(function(){
         $("#bEnviar").click(function(){
           event.preventDefault(); 
           // Validaciones de nombre de usuario
           var nombreUsuario = $("#itUserName").val();
-          var usuarioBool = false;  // Booleano para validar el nombre de usuario
 
+          // Validación para nombre de usuario en caso de que esté vacío
           if (nombreUsuario == ""){
             $("#mensajeUserName").text("Ingrese un nombre de usuario válido").fadeIn();
             return false;
+          // Validación para nombre de usuario en caso de contanga menos de 5 caracteres
           } else if (nombreUsuario.length < 5){
             $("#mensajeUserName").text("El nombre de usuario debe tener al menos 5 caracteres").fadeIn();
             return false;
@@ -237,14 +242,16 @@
           // Validaciones de contraseña
           var contrasena = $("#itContrasena").val();
           var confContrasena = $("#itConstrasenaConf").val();
-          var contrasenaBool = false; // Booleano para validar la contraseña
 
+          // Validación contraseña en caso de que esté vacía
           if(contrasena === ""){
             $("#mensajeContrasena").text("La contraseña no puede estar vacía").fadeIn();
             return false;
+          // Validación contraseña en caso de sea menor a 10 caracteres
           } else if (contrasena.length < 10){
             $("#mensajeContrasena").text("La contraseña debe tener al menos 10 caracteres").fadeIn();
             return false;
+          // Validación contraseña en caso de no cumpla con el formato
           } else if (!exprpass.test(contrasena)){
             $("#mensajeContrasena").text("La contraseña debe contener al menos una mayúscula, un número y un carácter especial").fadeIn();
             return false;
@@ -263,9 +270,11 @@
           var correo = $("#itEmail").val();
           var correoBool = false; // Booleano para validar el correo electrónico
 
+          // Validación de correo en caso de que la casilla esté vacía
           if(correo === ""){
             $("#mensajeEmail").text("El correo electrónico no puede estar vacío").fadeIn();
             return false;
+          // Validación de correo en caso de no se cumpla con el formato
           } else if (!expr.test(correo)){
             $("#mensajeEmail").text("El formato del correo electrónico es incorrecto").fadeIn();
             return false;
@@ -279,12 +288,10 @@
           var minAllowed = 1;
           var checkBoxBool = false; // Booleano para validar las casillas marcadas
 
+          // Validación de checkbox para que el usuario deba seleccionar a lo menos una casilla
           var checkedCount = $('input[name="genero"]:checked').length;
           if(checkedCount < minAllowed){
             $("#mensajeCheckBox").text("Debe seleccionar al menos una casilla").fadeIn();
-            return false;
-          } else if (checkedCount > maxAllowed) {
-            $("#mensajeCheckBox").text("Solo puedes seleccionar un máximo de 3 géneros").fadeIn();
             return false;
           } else {
             $("#mensajeCheckBox").fadeOut();
@@ -296,13 +303,13 @@
             icon: "success",
             title: "Felicidades, has sido registrado",
             showConfirmButton: false,
-            timer: 1500
+            timer: 3000
           });
 
         // Evitar que el formulario se envíe inmediatamente después de hacer clic en el botón
         setTimeout(function(){
         $("form").submit(); // Envía el formulario después de 3 segundos
-        }, 5000);
+        }, 3000);
 
           
         });
@@ -311,10 +318,3 @@
     </script>
   </body>
 </html>
-
-/*$("#bEnviar").click(function(){
-  var selectedGenres = $('input[name="genero"]:checked').map(function(){ // Se seleccionan todos loscheckboxes seleccionados, y crea una matriz que contienen los valores 
-    return this.value;
-  }).get(); // Convierte el objeto jQuery resultante en un array nativo de JavaScript
-  // Acá se puede agregar más lógica para enviar el formulario o manejar los géneros seleccionados
-});*/

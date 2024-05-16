@@ -1,5 +1,5 @@
 html, body {
-  height: 2000px;
+  min-height: 100%;
   background-image: linear-gradient(to bottom, rgb(23, 43, 80), rgb(68, 103, 167));
   margin: 0;
   padding: 0;
@@ -180,4 +180,9 @@ html, body {
 
 .checkbox-container .form-check {
   width: 50%;
+}
+
+#no-estoy-registrado {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 30px;
 }
