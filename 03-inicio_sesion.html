@@ -84,14 +84,15 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Mensaje de inicio de sesión</h5>
+            <h5 class="modal-title" id="exampleModalLabel">You! Shall not pass!</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="mensajeModalBody">
             <!-- Aquí se mostrará el mensaje del modal -->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="botonCerrar">Cerrar</button>
+            <button type="button" class="btn btn-light" id="registrarse">No estoy Registrado</button>
           </div>
         </div>
       </div>
@@ -105,34 +106,52 @@
       var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9\-\.]+$/;
       var exprpass = /^(?=.*[a-zA-Z])(?=.*\d{2,})(?=.*[!./¡¿?])[a-zA-Z\d!./¡¿?]{10,}$/;
 
-      $(document).ready(function(){
-        $("#bEnviar").click(function(){
-          var correo = $("#itMail").val();
-          var contrasena = $("#itContrasena").val();
+      document.getElementById("registrarse").addEventListener("click", function(){
+        // Redireccionar a página de registro
+        window.location.href = "08-Registrarse.html";
+      })
 
-          if(correo === ""){
-            $("#mensajeModalBody").text("El correo no puede estar vacío");
-            $('#modalMensaje').modal('show');
-            return false;
-          }else if (!expr.test(correo)){
-            $("#mensajeModalBody").text("El correo no cumple con el formato requerido");
-            $('#modalMensaje').modal('show');
-            return false;
-          }else if(contrasena === ""){
-            $("#mensajeModalBody").text("La contraseña no puede estar vacía");
-            $('#modalMensaje').modal('show');
-            return false;
-          }else if (!exprpass.test(contrasena)){
-            $("#mensajeModalBody").text("El formato de la contraseña no es válido");
-            $('#modalMensaje').modal('show');
-            return false;
-          }else{
-            $("#mensajeModalBody").text("Todo está correcto. Enviando formulario...");
-            $('#modalMensaje').modal('show');
-            $('#formularioInicioSesion').submit(); // Enviar el formulario
-          }
-        });
-      });
+$(document).ready(function(){
+  $("#bEnviar").click(function(event){
+    var correo = $("#itMail").val();
+    var contrasena = $("#itContrasena").val();
+
+    // Función para manejar la validación y la redirección
+    function validarYRedireccionar() {
+      if(correo === ""){
+        $("#mensajeModalBody").text("El correo no puede estar vacío");
+        $('#modalMensaje').modal('show');
+      }else if (!expr.test(correo)){
+        $("#mensajeModalBody").text("El correo no cumple con el formato requerido");
+        $('#modalMensaje').modal('show');
+      }else if(contrasena === ""){
+        $("#mensajeModalBody").text("La contraseña no puede estar vacía");
+        $('#modalMensaje').modal('show');
+      }else if (!exprpass.test(contrasena)){
+        $("#mensajeModalBody").text("El formato de la contraseña no es válido");
+        $('#modalMensaje').modal('show');
+      }else{
+        $("#botonCerrar").fadeOut();
+        $("#registrarse").fadeOut();
+        $(".modal-content").css("background-image", "url('img/VaultBoy.jpg')")
+        $("#exampleModalLabel").text("Iniciando Sesión");
+        $("#mensajeModalBody").text("Todo está correcto. Enviando formulario...");
+        $('#modalMensaje').modal('show');
+
+        // Redirección con un retraso después de mostrar el mensaje modal
+        setTimeout(function(){
+          window.location.href = "07-Perfil.html";
+        }, 5000); // 2000 milisegundos = 2 segundos
+      }
+    }
+
+    // Prevenir la acción por defecto del botón de envío
+    event.preventDefault();
+
+    // Llamar a la función de validación y redirección
+    validarYRedireccionar();
+  });
+});
     </script>
 
 </body>

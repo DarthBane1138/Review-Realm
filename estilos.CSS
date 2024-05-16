@@ -186,3 +186,12 @@ html, body {
     background-color: rgba(255, 255, 255, 0.5);
     margin-left: 30px;
 }
+
+#modalMensaje .modal-content {
+  height: 10000;
+  background-image: url('img/Gandalf.jpg');
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: overlay;
+  background-size: cover; /* Para ajustar la imagen al tamaño del modal */
+  background-position: center; /* Para centrar la imagen */
+}
