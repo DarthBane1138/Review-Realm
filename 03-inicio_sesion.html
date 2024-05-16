@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Sesión</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
     <link rel="stylesheet" href="estilos.css">
-  </head>
-
-  <!-- Clase para enlazar fondo de página -->
-  <body class="fondo-inicio"> 
+</head>
+<body class="fondo-inicio"> 
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand">
+          <a class="navbar-brand" href="01-index.html">
             <img src="img/ReviewRealmlogoblanco.png" alt="ReviewRealm">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,20 +42,17 @@
 
       <div class="contenedor-titulo">
         <h1 class ="text-center">Inicio Sesión</h1>
-        </div>
+      </div>
 
-      <!-- Columnas para centrar contenido de página -->
-      <div class = "container-fluid" id= "cuerpo_categorias">
-        <div class = "row">
-          <div class = "col-2"></div>
-          <!-- Columna principal -->
-          <div class = "col-8" id = "columna_principal">
+      <div class="container-fluid" id="cuerpo_categorias">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8" id="columna_principal">
             <div class="container mt-3">
               <br><br>
               <div class="row justify-content-center">
                 <div class="col-md-6 mb-5">
-                  <!-- formulario para iniciar sesión -->
-                  <form>
+                  <form id="formularioInicioSesion">
                     <div class="mb-3">
                       <label for="itMail" class="form-label">Correo electrónico</label>
                       <input type="email" class="form-control" id="itMail" aria-describedby="emailHelp">
@@ -79,11 +75,27 @@
               </div>
             </div>
           </div>
-          <div class = "col-2"></div>
+          <div class="col-2"></div>
         </div>
       </div>
-            
 
+    <!-- Modal -->
+    <div class="modal fade" id="modalMensaje" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mensaje de inicio de sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="mensajeModalBody">
+            <!-- Aquí se mostrará el mensaje del modal -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -96,37 +108,32 @@
       $(document).ready(function(){
         $("#bEnviar").click(function(){
           var correo = $("#itMail").val();
-          
-          if(correo === ""){
-            $("#mensajeErrorCorreo").text("El correo no puede estar vacío").fadeIn();
-            return false;
-          }else if (!expr.test(correo)){
-            $("#mensajeErrorCorreo").text("El correo con cumple con el formato requerido").fadeIn();
-            return false;
-          }else {
-            $("#mensajeErrorCorreo").fadeOut();
-            }
-          });
-        });
-
-
-      $(document).ready(function(){
-        $("#bEnviar").click(function(){
           var contrasena = $("#itContrasena").val();
 
-          if(contrasena === ""){
-            $("#mensajeErrorContrasena").text("El campo de contraseña no puedes estar vacío").fadeIn();
+          if(correo === ""){
+            $("#mensajeModalBody").text("El correo no puede estar vacío");
+            $('#modalMensaje').modal('show');
+            return false;
+          }else if (!expr.test(correo)){
+            $("#mensajeModalBody").text("El correo no cumple con el formato requerido");
+            $('#modalMensaje').modal('show');
+            return false;
+          }else if(contrasena === ""){
+            $("#mensajeModalBody").text("La contraseña no puede estar vacía");
+            $('#modalMensaje').modal('show');
             return false;
           }else if (!exprpass.test(contrasena)){
-            $("#mensajeErrorContrasena").text("El formato de contraseña no es válido, agregue Mayúsculas, números y algún caracter /-.").fadeIn();
+            $("#mensajeModalBody").text("El formato de la contraseña no es válido");
+            $('#modalMensaje').modal('show');
             return false;
           }else{
-            $("#mensajeErrorContrasena").fadeOut();
+            $("#mensajeModalBody").text("Todo está correcto. Enviando formulario...");
+            $('#modalMensaje').modal('show');
+            $('#formularioInicioSesion').submit(); // Enviar el formulario
           }
         });
       });
-
     </script>
 
-  </body>
+</body>
 </html>
