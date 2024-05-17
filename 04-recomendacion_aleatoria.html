@@ -28,12 +28,6 @@
             <div class="nav-item d-flex align-items-center"></div>
             <a class="nav-link" href="03-inicio_sesion.html">Iniciar Sesión</a>
           </div>
-          <!--<div class="ms-auto navbar-nav">
-            <div class="nav-item d-flex align-items-center">
-              <a class="nav-link" href = "07-Perfil.html">Perfil</a>
-              <img src="img/imagen_perfil.png" alt="Foto de perfil" width="30" class="rounded-circle">   
-            </div>
-          </div>-->
           </div>
         </div>
       </div>
@@ -50,31 +44,17 @@
         <div class="col-8" id="columna_principal">
           <br><br>
           <h2 class="subtitulo_index text-center">La recomendación aleatoria es:</h2>
-          <h3 class="subtitulo_index_2 text-center" id="titulo-juego"></h3>
+          <h3 class="subtitulo_index_2 text-center" id="titulo_juego"></h3>
           <br>
           <!-- Se subdivide la columna central en dos columnas -->
           <div class="row">
             <!-- Columna para la imagen -->
             <div class="col-md-6">
-              <img src="img/the_legend_of_zelda_the_wind_waker.jpg" alt="The Wind Waker" class="img-fluid mx-auto d-block" width="400px">
+              <img id="imagen_juego" alt="Imagen del Juego" class="img-fluid mx-auto d-block" width="400px">
             </div>
             <!-- Columna para la lista -->
             <div class="col-md-6 align-self-center">
-              <ul class="lista_pagina">
-                <li>Desarrollador: Nintendo EAD</li>
-                <li>Distribuidor: Nintendo</li>
-                <li>Género: Acción-Aventura</li>
-                <li>Duración historia principal: 26 horas</li>
-                <li>Duración Completista: 42 horas</li>
-                <li>Duración promedio: 32 horas</li>
-                <li>Puntaje ReviewRealm: 9,6/10</li>
-                <li>Versión Original: Nintendo Gamecube 2002</li>
-                <li>Saga: The Legend of Zelda</li>
-                <li>Director: Eiji Aonuma</li>
-                <li>Modalidad de juego: Un jugador</li>
-                <li>Clasificación: ESRB E / Pegi 7</li>
-                <li>Tasa finalización: 25%</li>
-              </ul>
+              <ul class="lista_pagina" id="detalles-juego"></ul>
             </div>
 
             <div id="linkIgn"><br>
@@ -85,13 +65,9 @@
           </div>
         </div>
         <div class="col-2"></div>
-
-
         
       </div>
     </div>
-
-
 
     <!-- Se agrega Footer-->
     <div id="footer-container"></div>
@@ -100,6 +76,31 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+
+    <!-- Script para recomendar contenido aleatorio (Por el momento se hace con un archivo recomendaciones.json) -->
+    <script>
+      window.onload = function() {
+      // Cargar recomendaciones desde el archivo JSON
+      $.getJSON('recomendaciones.json', function(data) {
+          // Obtener un índice aleatorio dentro del rango de la longitud del array de recomendaciones
+          var randomIndex = Math.floor(Math.random() * data.length);
+          // Obtener la recomendación aleatoria
+          var recomendacion = data[randomIndex];
+
+          // Actualizar el título del juego
+          $('#titulo_juego').text(recomendacion.titulo);
+          // Actualizar la imagen del juego
+          $('#imagen_juego').attr('src', recomendacion.imagen);
+          
+          // Vaciar la lista de detalles del juego
+          $('#detalles-juego').empty();
+          // Agregar cada detalle del juego a la lista
+          $.each(recomendacion.detalles, function(_, detalle) {
+              $('#detalles-juego').append('<li>' + detalle + '</li>');
+          });
+      });
+    };
+    </script>
 
   </body>
 </html>

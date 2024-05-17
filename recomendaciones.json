@@ -1,0 +1,154 @@
+[
+    {
+      "titulo": "The Legend of Zelda: The Wind Waker",
+      "imagen": "img/the_wind_waker.jpg",
+      "detalles": [
+        "Desarrollador: Nintendo EAD",
+        "Distribuidor: Nintendo",
+        "Género: Acción-Aventura",
+        "Duración historia principal: 26 horas",
+        "Duración Completista: 42 horas",
+        "Duración promedio: 32 horas",
+        "Puntaje ReviewRealm: 9,6/10",
+        "Versión Original: Nintendo Gamecube 2002",
+        "Saga: The Legend of Zelda",
+        "Director: Eiji Aonuma",
+        "Modalidad de juego: Un jugador",
+        "Clasificación: ESRB E / Pegi 7",
+        "Tasa finalización: 25%"
+      ]
+    },
+    {
+      "titulo": "Super Mario Odyssey",
+      "imagen": "img/super_mario_odyssey.png",
+      "detalles": [
+        "Desarrollador: Nintendo EPD",
+        "Distribuidor: Nintendo",
+        "Género: Plataforma",
+        "Duración historia principal: 12 horas",
+        "Duración Completista: 50 horas",
+        "Duración promedio: 30 horas",
+        "Puntaje ReviewRealm: 10/10",
+        "Versión Original: Nintendo Switch 2017",
+        "Saga: Super Mario",
+        "Director: Kenta Motokura",
+        "Modalidad de juego: Un jugador",
+        "Clasificación: ESRB E / Pegi 7",
+        "Tasa finalización: 20%"
+      ]
+    },
+    {
+      "titulo": "The Witcher 3: Wild Hunt",
+      "imagen": "img/the_witcher_3.jpg",
+      "detalles": [
+        "Desarrollador: CD Projekt Red",
+        "Distribuidor: CD Projekt",
+        "Género: Rol",
+        "Duración historia principal: 50 horas",
+        "Duración Completista: 173 horas",
+        "Duración promedio: 100 horas",
+        "Puntaje ReviewRealm: 9,8/10",
+        "Versión Original: PC, PS4, Xbox One 2015",
+        "Saga: The Witcher",
+        "Director: Konrad Tomaszkiewicz",
+        "Modalidad de juego: Un jugador",
+        "Clasificación: ESRB M / Pegi 18",
+        "Tasa finalización: 27%"
+      ]
+    },
+    {
+        "titulo": "Elden Ring",
+        "imagen": "img/elden_ring.png",
+        "detalles": [
+          "Desarrollador: FromSoftware",
+          "Distribuidor: Bandai Namco Entertainment",
+          "Género: Acción y RPG",
+          "Duración historia principal: 60 horas",
+          "Duración Completista: 180 horas",
+          "Duración promedio: 80 horas",
+          "Puntaje ReviewRealm: 9,8/10",
+          "Versión Original: PC, PS4, Xbox One 2015",
+          "Saga: Elden Ring",
+          "Director: Hidetaka Miyasaki",
+          "Modalidad de juego: Un jugador y multijugador cooperativo y pvp",
+          "Clasificación: ESRB M / Pegi 16",
+          "Tasa finalización: 15%"
+        ]
+      },
+      {
+        "titulo": "Starcraft",
+        "imagen": "img/starcraft.jpg",
+        "detalles": [
+          "Desarrollador: Blizzard Entertainment",
+          "Distribuidor: Blizzard Entertainment",
+          "Género: Estrategia en tiempo real",
+          "Duración historia principal: 25 horas",
+          "Duración Completista: 31 horas",
+          "Duración promedio: 27 horas",
+          "Puntaje ReviewRealm: 9,6/10",
+          "Versión Original: PC 1998",
+          "Saga: Starcraft",
+          "Director: Chris Metzen",
+          "Modalidad de juego: Un jugador y multijugador",
+          "Clasificación: ESRB T / Pegi 16",
+          "Tasa finalización: 50%"
+        ]
+      },
+      {
+        "titulo": "Ghost of Tsushima",
+        "imagen": "img/ghost_of_tsushima_cover.jpg",
+        "detalles": [
+          "Desarrollador: Sucker Punch Productions",
+          "Distribuidor: Sony Interactive Entertainment",
+          "Género: Acción y aventura",
+          "Duración historia principal: 25 horas",
+          "Duración Completista: 62 horas",
+          "Duración promedio: 40 horas",
+          "Puntaje ReviewRealm: 9/10",
+          "Versión Original: PlayStation 4 2020",
+          "Saga: Ghost of Tsushima",
+          "Director: Nate Fox",
+          "Modalidad de juego: Un jugador y multijugador",
+          "Clasificación: M / Pegi 18",
+          "Tasa finalización: 35%"
+        ]
+      },
+      {
+        "titulo": "Hellblade: Senua’s Sacrifice",
+        "imagen": "img/hellblade_senua_sacrifice.jpg",
+        "detalles": [
+          "Desarrollador: Ninja Theory",
+          "Distribuidor: Ninja Theory",
+          "Género: Acción y aventura",
+          "Duración historia principal: 5",
+          "Duración Completista: 6 horas",
+          "Duración promedio: 5 horas",
+          "Puntaje ReviewRealm: 9/10",
+          "Versión Original: PlayStation 4 / Xbox One /PC 2017",
+          "Saga: Hellblade",
+          "Director: Tameem Antoniades",
+          "Modalidad de juego: Un jugador",
+          "Clasificación: M / Pegi 18",
+          "Tasa finalización: 75%"
+        ]
+      },
+      {
+        "titulo": "Dark Souls",
+        "imagen": "img/dark_souls.jpg",
+        "detalles": [
+          "Desarrollador: FromSoftware",
+          "Distribuidor: Bandai Namco Entertainment",
+          "Género: Acción y RPG",
+          "Duración historia principal: 30",
+          "Duración Completista: 50 horas",
+          "Duración promedio: 40 horas",
+          "Puntaje ReviewRealm: 9/10",
+          "Versión Original: PlayStation 3 / Xbox 360 2011",
+          "Saga: Dark Souls",
+          "Director: Hidetaka Miyazaki",
+          "Modalidad de juego: Un jugador y multijugador",
+          "Clasificación: ESRB M / Pegi 16",
+          "Tasa finalización: 25%"
+        ]
+      }
+  ]
