@@ -1,5 +1,5 @@
 html, body {
-  min-height: 100%;
+  height: 110%;
   background-image: linear-gradient(to bottom, rgb(23, 43, 80), rgb(68, 103, 167));
   margin: 0;
   padding: 0;
@@ -91,11 +91,6 @@ html, body {
   background-color: transparent;
 }
 
-#columna_principal {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 1000px;
-}
-
 .table-transparent {
   background-color: rgba(255, 255, 255, 0); /* Fondo completamente transparente */
 }
@@ -173,13 +168,13 @@ html, body {
   margin: 5px;
 }
 
-.checkbox-container {
+#checkBoxGenero {
   display: flex;
   flex-wrap: wrap;
 }
 
 .checkbox-container .form-check {
-  width: 50%;
+  width: 30%;
 }
 
 #no-estoy-registrado {
@@ -193,4 +188,71 @@ html, body {
   background-blend-mode: overlay;
   background-size: cover; /* Para ajustar la imagen al tamaño del modal */
   background-position: center; /* Para centrar la imagen */
+}
+
+#aclaraciones {
+  color: #9c9c9c;
+}
+
+#columna_principal {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 860px;
+}
+
+
+/*Estilos para Footer*/
+footer {
+  background-color: rgb(65, 65, 65);
+  color: #fff;
+  padding: 15px 0;
+  border: 2px solid #6e6e6e;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  height: 170px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.social-media-icons img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+#p-footer {
+  color: #a1a1a1; /* Cambia el color del texto */
+  font-size: 14px; /* Cambia el tamaño de la fuente */
+  text-align: justify;
+}
+
+#linkIgn {
+  color: #797979;
+  justify-content: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  position: static;
 }

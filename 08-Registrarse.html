@@ -9,7 +9,8 @@
   </head>
 
   <!-- Clase para enlazar fondo de página -->
-  <body> 
+  <body>
+    <div id="cuerpoPrincipal">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="01-index.html">
@@ -84,7 +85,8 @@
 
                     <div class="mb-2">
                       <label for="genero" class="form-label">Género</label>
-                      <div id="genero" class="checkbox-container">
+                      <p id="aclaraciones">Selecciona hasta 3 géneros de videojuegos que mejor representen tus gustos. Sabemos que todos son divertidos, pero siempre uno tiene sus preferencias.</p>
+                      <div id="checkBoxGenero" class="checkbox-container">
                           <div class="form-check">
                               <input class="form-check-input" type="checkbox" id="accion" name="genero" value="accion">
                               <label class="form-check-label" for="accion">Acción</label>
@@ -174,7 +176,6 @@
                     <button type="submit" class="btn btn-primary" id="bEnviar">Registrar</button>
 
                   </form>
-                  <div style="height: 500px;"></div>
                 </div>
               </div>
             </div>
@@ -182,6 +183,10 @@
           <div class = "col-2"></div>
         </div>
       </div>
+    </div>
+
+          <!-- Se agrega Footer-->
+    <div id="footer-container"></div>
 
 
       
@@ -189,132 +194,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/validarRegistro.js"></script>
+    <script src="js/scripts.js"></script>
 
-    <script>
-
-
-      var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9\-\.]+$/;
-      var exprpass = /^(?=.*[a-zA-Z])(?=.*\d{2,})(?=.*[!./¡¿?])[a-zA-Z\d!./¡¿?]{10,}$/;
-
-      // Para limitar los caracteres del nombre de usuario
-      $(document).ready(function(){
-        $("#itUserName").on("input", function(){
-          var nombreUsuario = $(this).val();
-          if (nombreUsuario.length > 20){
-            $(this).val(nombreUsuario.substr(0,20));
-          }
-        });
-      });
-
-      // Verificador que no permite seleccionar más de 3 casillas de género
-      $(document).ready(function(){
-        $('input[name="genero"]').change(function(){ // Se seleccionan todos los elementos input con nombre name igual a a genero, adjunta controlador de eventos change para verificar cada vez que uno de estos cambie
-          var maxAllowed = 3;
-          var checkedCount = $('input[name="genero"]:checked').length;
-
-          if(checkedCount > maxAllowed) {
-            $(this).prop('checked', false);
-            alert('Solo puedes seleccionar un máximo de 3 géneros');
-          }
-        });
-      });
-
-      // Validaciones de formulario
-      $(document).ready(function(){
-        $("#bEnviar").click(function(){
-          event.preventDefault(); 
-          // Validaciones de nombre de usuario
-          var nombreUsuario = $("#itUserName").val();
-
-          // Validación para nombre de usuario en caso de que esté vacío
-          if (nombreUsuario == ""){
-            $("#mensajeUserName").text("Ingrese un nombre de usuario válido").fadeIn();
-            return false;
-          // Validación para nombre de usuario en caso de contanga menos de 5 caracteres
-          } else if (nombreUsuario.length < 5){
-            $("#mensajeUserName").text("El nombre de usuario debe tener al menos 5 caracteres").fadeIn();
-            return false;
-          } else {
-            $("#mensajeUserName").fadeOut();
-            usuarioBool = true; // Se establece a true si la validación pasa
-          }
-
-          // Validaciones de contraseña
-          var contrasena = $("#itContrasena").val();
-          var confContrasena = $("#itConstrasenaConf").val();
-
-          // Validación contraseña en caso de que esté vacía
-          if(contrasena === ""){
-            $("#mensajeContrasena").text("La contraseña no puede estar vacía").fadeIn();
-            return false;
-          // Validación contraseña en caso de sea menor a 10 caracteres
-          } else if (contrasena.length < 10){
-            $("#mensajeContrasena").text("La contraseña debe tener al menos 10 caracteres").fadeIn();
-            return false;
-          // Validación contraseña en caso de no cumpla con el formato
-          } else if (!exprpass.test(contrasena)){
-            $("#mensajeContrasena").text("La contraseña debe contener al menos una mayúscula, un número y un carácter especial").fadeIn();
-            return false;
-          } else {
-            $("#mensajeContrasena").fadeOut();
-            if (confContrasena !== contrasena){
-              $("#mensajeContrasenaConf").text("La confirmación de la contraseña debe ser igual a la contraseña").fadeIn();
-              return false;
-            } else {
-              $("#mensajeContrasenaConf").fadeOut();
-              contrasenaBool = true; // Se establece a true si la validación pasa
-            }
-          }
-
-          // Validaciones de correo electrónico
-          var correo = $("#itEmail").val();
-          var correoBool = false; // Booleano para validar el correo electrónico
-
-          // Validación de correo en caso de que la casilla esté vacía
-          if(correo === ""){
-            $("#mensajeEmail").text("El correo electrónico no puede estar vacío").fadeIn();
-            return false;
-          // Validación de correo en caso de no se cumpla con el formato
-          } else if (!expr.test(correo)){
-            $("#mensajeEmail").text("El formato del correo electrónico es incorrecto").fadeIn();
-            return false;
-          } else {
-            $("#mensajeEmail").fadeOut();
-            correoBool = true; // Se establece a true si la validación pasa
-          }
-
-          // Validaciones de casillas marcadas
-          var maxAllowed = 3;
-          var minAllowed = 1;
-          var checkBoxBool = false; // Booleano para validar las casillas marcadas
-
-          // Validación de checkbox para que el usuario deba seleccionar a lo menos una casilla
-          var checkedCount = $('input[name="genero"]:checked').length;
-          if(checkedCount < minAllowed){
-            $("#mensajeCheckBox").text("Debe seleccionar al menos una casilla").fadeIn();
-            return false;
-          } else {
-            $("#mensajeCheckBox").fadeOut();
-            checkBoxBool = true; // Se establece a true si la validación pasa
-          }
-
-          Swal.fire({
-            position: "centered",
-            icon: "success",
-            title: "Felicidades, has sido registrado",
-            showConfirmButton: false,
-            timer: 3000
-          });
-
-        // Evitar que el formulario se envíe inmediatamente después de hacer clic en el botón
-        setTimeout(function(){
-        $("form").submit(); // Envía el formulario después de 3 segundos
-        }, 3000);
-
-          
-        });
-      });
-
-    </script>
   </body>
 </html>
