@@ -93,7 +93,7 @@ html, body {
 
 #columna_principal {
   background-color: rgba(0, 0, 0, 0.5);
-  height: 1881px;
+  height: 1000px;
 }
 
 .table-transparent {
@@ -188,7 +188,6 @@ html, body {
 }
 
 #modalMensaje .modal-content {
-  height: 10000;
   background-image: url('img/Gandalf.jpg');
   background-color: rgba(255, 255, 255, 0.5);
   background-blend-mode: overlay;
